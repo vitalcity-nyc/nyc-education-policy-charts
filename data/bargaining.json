@@ -1,0 +1,24 @@
+{
+  "title": "Percent of teachers covered by collective bargaining agreements, by state",
+  "source": "Saltzman, Gregory M. (1981). The Growth of Teacher Bargaining and the Enactment of Teacher Bargaining Laws. PhD dissertation, University of Wisconsin–Madison.",
+  "transcription_note": "Values transcribed from the published reproduction of Table 2-1 (provided as source image). The original 1981 dissertation is not freely available online; ProQuest Dissertations is the canonical primary source.",
+  "years": [1960, 1962, 1964, 1966, 1968, 1970, 1972, 1975, 1976, 1977],
+  "states": [
+    {"name": "California",     "law_year": 1975, "values": [0, 0, 0, 0, 3, 6, 10, 8, 51, 85]},
+    {"name": "Florida",        "law_year": 1974, "values": [0, 0, 0, 0, 0, 0, 7, 19, 72, 90]},
+    {"name": "Hawaii",         "law_year": 1970, "values": [0, 0, 0, 0, 0, 0, 100, 100, 100, 100]},
+    {"name": "Indiana",        "law_year": 1973, "values": [0, 0, 0, 0, 12, 33, 33, 89, 89, 90]},
+    {"name": "Iowa",           "law_year": 1974, "values": [0, 0, 0, 0, 0, 0, 4, 43, 70, 80]},
+    {"name": "Maine",          "law_year": 1969, "values": [0, 0, 0, 0, 0, 49, 48, 81, 54, 80]},
+    {"name": "Massachusetts",  "law_year": 1965, "values": [0, 0, 3, 35, 76, 86, 92, 98, 99, 99]},
+    {"name": "Michigan",       "law_year": 1965, "values": [0, 0, 11, 65, 90, 95, 99, 99, 99, 99]},
+    {"name": "Minnesota",      "law_year": 1971, "values": [0, 0, 0, 0, 0, 3, 47, 94, 99, 99]},
+    {"name": "New Hampshire",  "law_year": 1975, "values": [0, 0, 0, 0, 0, 20, 40, 51, 96, 98]},
+    {"name": "New York",       "law_year": 1967, "values": [0, 0, 34, 37, 38, 87, 96, 98, 98, 98]},
+    {"name": "Oregon",         "law_year": 1973, "values": [0, 0, 0, 0, 0, 22, 49, 95, 98, 98]},
+    {"name": "Pennsylvania",   "law_year": 1970, "values": [0, 0, 3, 2, 4, 21, 68, 93, 93, 95]},
+    {"name": "Rhode Island",   "law_year": 1966, "values": [8, 7, 7, 36, 89, 92, 90, 98, 98, 98]},
+    {"name": "South Dakota",   "law_year": 1969, "values": [0, 0, 0, 0, 0, 11, 18, 61, 64, 74]},
+    {"name": "Washington",     "law_year": 1975, "values": [0, 1, 2, 7, 60, 58, 91, 95, 95, 96]}
+  ]
+}

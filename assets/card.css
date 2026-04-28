@@ -1,0 +1,133 @@
+/* Shared embed-card styles for nyc-education-policy-charts.
+   Pulls Vital City design tokens; embeddable inside a Ghost article (~700px). */
+
+:root {
+  /* Vital City tokens (subset, mirrored from vital-city-design-system/tokens/tokens.css) */
+  --vc-black: #050507;
+  --vc-white: #ffffff;
+  --vc-cloud: #dddddd;
+  --vc-charcoal: #707175;
+  --vc-orange: #ff7c53;
+  --vc-chartreuse: #dde44c;
+  --vc-magenta: #e7466d;
+
+  /* Sequential ramp (chartreuse -> safety orange -> baddest red) */
+  --vc-ramp-0: #f7f8dd;   /* ~0% — pale */
+  --vc-ramp-1: #edefa8;
+  --vc-ramp-2: #e0e883;
+  --vc-ramp-3: #fb9e63;
+  --vc-ramp-4: #fb693c;
+  --vc-ramp-5: #ed5236;
+  --vc-ramp-6: #e03a30;
+  --vc-ramp-7: #d2232a;   /* ~100% — deep red */
+
+  --vc-font-sans: "halyard-text", "Inter", "Helvetica Neue", Arial, sans-serif;
+  --vc-font-serif: "GascogneTS", "Source Serif 4", Georgia, "Times New Roman", serif;
+  --vc-track-caps: 0.04em;
+  --vc-track-kicker: 0.08em;
+}
+
+html, body { margin: 0; padding: 0; }
+body {
+  background: #f5f5f3;
+  font-family: var(--vc-font-sans);
+  color: var(--vc-black);
+  -webkit-font-smoothing: antialiased;
+  padding: 24px 16px;
+}
+
+.card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--vc-white);
+  border: 1px solid var(--vc-cloud);
+  border-radius: 12px;
+  padding: 28px 28px 22px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: var(--vc-track-kicker);
+  text-transform: uppercase;
+  color: var(--vc-orange);
+  margin: 0 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.kicker::before, .kicker::after {
+  content: "";
+  flex: 0 0 24px;
+  height: 2px;
+  background: var(--vc-orange);
+}
+.kicker::after { flex: 1; }
+
+h1.chart-title {
+  font-family: var(--vc-font-serif);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0 0 8px;
+  color: var(--vc-black);
+  letter-spacing: -0.01em;
+}
+h1.chart-title em { font-style: italic; }
+
+.dek {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--vc-charcoal);
+  margin: 0 0 18px;
+  max-width: 60ch;
+}
+
+.source {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--vc-charcoal);
+  margin-top: 18px;
+  border-top: 1px solid var(--vc-cloud);
+  padding-top: 12px;
+}
+.source a { color: var(--vc-charcoal); text-decoration: underline; }
+.source strong { color: var(--vc-black); font-weight: 700; }
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 11px;
+  color: var(--vc-charcoal);
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.legend-ramp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.legend-ramp .swatch {
+  display: inline-flex;
+  height: 12px;
+  width: 110px;
+  border-radius: 2px;
+  background: linear-gradient(to right,
+    var(--vc-ramp-0), var(--vc-ramp-2), var(--vc-ramp-4), var(--vc-ramp-7));
+}
+.legend-ramp .endcap { font-variant-numeric: tabular-nums; }
+
+.law-key {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.law-key .box {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--vc-black);
+  background: var(--vc-white);
+}

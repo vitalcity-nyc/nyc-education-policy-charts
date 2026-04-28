@@ -1,0 +1,315 @@
+{
+  "n": 51,
+  "pearson_r": 0.0816,
+  "r_squared": 0.0067,
+  "slope": 8.001490235650642e-05,
+  "intercept": 212.7672213235716,
+  "rows": [
+    {
+      "state": "Alabama",
+      "abbr": "AL",
+      "naep_g4_reading_2024": 213.2,
+      "ppspending_fy23": 12764
+    },
+    {
+      "state": "Alaska",
+      "abbr": "AK",
+      "naep_g4_reading_2024": 201.6,
+      "ppspending_fy23": 20339
+    },
+    {
+      "state": "Arizona",
+      "abbr": "AZ",
+      "naep_g4_reading_2024": 208.1,
+      "ppspending_fy23": 11297
+    },
+    {
+      "state": "Arkansas",
+      "abbr": "AR",
+      "naep_g4_reading_2024": 209.7,
+      "ppspending_fy23": 12737
+    },
+    {
+      "state": "California",
+      "abbr": "CA",
+      "naep_g4_reading_2024": 211.7,
+      "ppspending_fy23": 18797
+    },
+    {
+      "state": "Colorado",
+      "abbr": "CO",
+      "naep_g4_reading_2024": 220.9,
+      "ppspending_fy23": 14857
+    },
+    {
+      "state": "Connecticut",
+      "abbr": "CT",
+      "naep_g4_reading_2024": 219.2,
+      "ppspending_fy23": 25081
+    },
+    {
+      "state": "Delaware",
+      "abbr": "DE",
+      "naep_g4_reading_2024": 209.5,
+      "ppspending_fy23": 21340
+    },
+    {
+      "state": "District of Columbia",
+      "abbr": "DC",
+      "naep_g4_reading_2024": 209.2,
+      "ppspending_fy23": 31629
+    },
+    {
+      "state": "Florida",
+      "abbr": "FL",
+      "naep_g4_reading_2024": 218.2,
+      "ppspending_fy23": 11861
+    },
+    {
+      "state": "Georgia",
+      "abbr": "GA",
+      "naep_g4_reading_2024": 214.4,
+      "ppspending_fy23": 14413
+    },
+    {
+      "state": "Hawaii",
+      "abbr": "HI",
+      "naep_g4_reading_2024": 215.8,
+      "ppspending_fy23": 20055
+    },
+    {
+      "state": "Idaho",
+      "abbr": "ID",
+      "naep_g4_reading_2024": 215.7,
+      "ppspending_fy23": 10246
+    },
+    {
+      "state": "Illinois",
+      "abbr": "IL",
+      "naep_g4_reading_2024": 214.2,
+      "ppspending_fy23": 20252
+    },
+    {
+      "state": "Indiana",
+      "abbr": "IN",
+      "naep_g4_reading_2024": 220.1,
+      "ppspending_fy23": 13120
+    },
+    {
+      "state": "Iowa",
+      "abbr": "IA",
+      "naep_g4_reading_2024": 214.6,
+      "ppspending_fy23": 13791
+    },
+    {
+      "state": "Kansas",
+      "abbr": "KS",
+      "naep_g4_reading_2024": 213.1,
+      "ppspending_fy23": 14847
+    },
+    {
+      "state": "Kentucky",
+      "abbr": "KY",
+      "naep_g4_reading_2024": 218.0,
+      "ppspending_fy23": 14632
+    },
+    {
+      "state": "Louisiana",
+      "abbr": "LA",
+      "naep_g4_reading_2024": 216.0,
+      "ppspending_fy23": 14644
+    },
+    {
+      "state": "Maine",
+      "abbr": "ME",
+      "naep_g4_reading_2024": 209.6,
+      "ppspending_fy23": 18797
+    },
+    {
+      "state": "Maryland",
+      "abbr": "MD",
+      "naep_g4_reading_2024": 215.6,
+      "ppspending_fy23": 18887
+    },
+    {
+      "state": "Massachusetts",
+      "abbr": "MA",
+      "naep_g4_reading_2024": 224.8,
+      "ppspending_fy23": 22947
+    },
+    {
+      "state": "Michigan",
+      "abbr": "MI",
+      "naep_g4_reading_2024": 209.1,
+      "ppspending_fy23": 17535
+    },
+    {
+      "state": "Minnesota",
+      "abbr": "MN",
+      "naep_g4_reading_2024": 214.4,
+      "ppspending_fy23": 16116
+    },
+    {
+      "state": "Mississippi",
+      "abbr": "MS",
+      "naep_g4_reading_2024": 218.5,
+      "ppspending_fy23": 12093
+    },
+    {
+      "state": "Missouri",
+      "abbr": "MO",
+      "naep_g4_reading_2024": 211.9,
+      "ppspending_fy23": 13471
+    },
+    {
+      "state": "Montana",
+      "abbr": "MT",
+      "naep_g4_reading_2024": 217.2,
+      "ppspending_fy23": 13771
+    },
+    {
+      "state": "Nebraska",
+      "abbr": "NE",
+      "naep_g4_reading_2024": 211.7,
+      "ppspending_fy23": 15200
+    },
+    {
+      "state": "Nevada",
+      "abbr": "NV",
+      "naep_g4_reading_2024": 213.1,
+      "ppspending_fy23": 11673
+    },
+    {
+      "state": "New Hampshire",
+      "abbr": "NH",
+      "naep_g4_reading_2024": 221.5,
+      "ppspending_fy23": 21731
+    },
+    {
+      "state": "New Jersey",
+      "abbr": "NJ",
+      "naep_g4_reading_2024": 221.6,
+      "ppspending_fy23": 26279
+    },
+    {
+      "state": "New Mexico",
+      "abbr": "NM",
+      "naep_g4_reading_2024": 200.6,
+      "ppspending_fy23": 15693
+    },
+    {
+      "state": "New York",
+      "abbr": "NY",
+      "naep_g4_reading_2024": 214.6,
+      "ppspending_fy23": 30011
+    },
+    {
+      "state": "North Carolina",
+      "abbr": "NC",
+      "naep_g4_reading_2024": 213.4,
+      "ppspending_fy23": 12492
+    },
+    {
+      "state": "North Dakota",
+      "abbr": "ND",
+      "naep_g4_reading_2024": 215.5,
+      "ppspending_fy23": 16114
+    },
+    {
+      "state": "Ohio",
+      "abbr": "OH",
+      "naep_g4_reading_2024": 216.0,
+      "ppspending_fy23": 16475
+    },
+    {
+      "state": "Oklahoma",
+      "abbr": "OK",
+      "naep_g4_reading_2024": 207.3,
+      "ppspending_fy23": 11155
+    },
+    {
+      "state": "Oregon",
+      "abbr": "OR",
+      "naep_g4_reading_2024": 207.0,
+      "ppspending_fy23": 17161
+    },
+    {
+      "state": "Pennsylvania",
+      "abbr": "PA",
+      "naep_g4_reading_2024": 215.8,
+      "ppspending_fy23": 20055
+    },
+    {
+      "state": "Rhode Island",
+      "abbr": "RI",
+      "naep_g4_reading_2024": 216.3,
+      "ppspending_fy23": 21182
+    },
+    {
+      "state": "South Carolina",
+      "abbr": "SC",
+      "naep_g4_reading_2024": 214.9,
+      "ppspending_fy23": 13957
+    },
+    {
+      "state": "South Dakota",
+      "abbr": "SD",
+      "naep_g4_reading_2024": 214.1,
+      "ppspending_fy23": 12005
+    },
+    {
+      "state": "Tennessee",
+      "abbr": "TN",
+      "naep_g4_reading_2024": 215.1,
+      "ppspending_fy23": 12196
+    },
+    {
+      "state": "Texas",
+      "abbr": "TX",
+      "naep_g4_reading_2024": 211.9,
+      "ppspending_fy23": 12303
+    },
+    {
+      "state": "Utah",
+      "abbr": "UT",
+      "naep_g4_reading_2024": 219.3,
+      "ppspending_fy23": 10333
+    },
+    {
+      "state": "Vermont",
+      "abbr": "VT",
+      "naep_g4_reading_2024": 212.7,
+      "ppspending_fy23": 26344
+    },
+    {
+      "state": "Virginia",
+      "abbr": "VA",
+      "naep_g4_reading_2024": 214.1,
+      "ppspending_fy23": 16098
+    },
+    {
+      "state": "Washington",
+      "abbr": "WA",
+      "naep_g4_reading_2024": 215.7,
+      "ppspending_fy23": 18181
+    },
+    {
+      "state": "West Virginia",
+      "abbr": "WV",
+      "naep_g4_reading_2024": 205.9,
+      "ppspending_fy23": 14575
+    },
+    {
+      "state": "Wisconsin",
+      "abbr": "WI",
+      "naep_g4_reading_2024": 215.3,
+      "ppspending_fy23": 14881
+    },
+    {
+      "state": "Wyoming",
+      "abbr": "WY",
+      "naep_g4_reading_2024": 221.9,
+      "ppspending_fy23": 19324
+    }
+  ]
+}

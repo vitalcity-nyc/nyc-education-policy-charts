@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Methodology — NYC education policy charts</title>
+<link rel="stylesheet" href="assets/card.css">
+<style>
+  .card { max-width: 720px; }
+  .card h2 { font-family: var(--vc-font-serif); font-size: 20px; margin: 26px 0 8px; }
+  .card h3 { font-size: 13px; text-transform: uppercase; letter-spacing: var(--vc-track-caps); color: var(--vc-charcoal); margin: 18px 0 4px; }
+  .card p, .card li { font-size: 14px; line-height: 1.55; }
+  .card ul { padding-left: 20px; }
+  .card code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; background: #f3f3f1; padding: 1px 4px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<article class="card">
+  <p class="kicker">Methodology</p>
+  <h1 class="chart-title">Methodology</h1>
+  <p class="dek">Every number, source, and assumption behind the two charts. Nothing is a black box.</p>
+
+  <h2>Chart 1 — Teacher collective bargaining, 1960–1977</h2>
+  <h3>Source</h3>
+  <p>Saltzman, Gregory M. (1981). <em>The Growth of Teacher Bargaining and the Enactment of Teacher Bargaining Laws.</em> PhD dissertation, University of Wisconsin–Madison. The dissertation is held in ProQuest Dissertations &amp; Theses; it is not freely available online.</p>
+  <h3>What's plotted</h3>
+  <p>For each of 16 states, the percentage of public-school teachers covered by a collective bargaining agreement, sampled in 1960, 1962, 1964, 1966, 1968, 1970, 1972, 1975, 1976, and 1977. The cell with the heavy black border in each row marks the survey year at or just after the state's bargaining law took effect.</p>
+  <h3>Transcription</h3>
+  <p>Because the original dissertation was not obtained for this build, values were transcribed cell-by-cell from a published reproduction of the table. Small ±1–2 percentage point reading errors are possible in faint cells. Readers who need exact figures should consult the dissertation directly.</p>
+  <h3>Color ramp</h3>
+  <p>8-step sequential ramp keyed to value bins (0–5, 5–15, 15–30, 30–50, 50–70, 70–85, 85–95, 95–100), pale at the low end to deep red at the high end, drawn from Vital City brand tokens.</p>
+
+  <h2>Chart 2 — NAEP grade-4 reading vs per-pupil spending, 2024</h2>
+  <h3>Sources</h3>
+  <ul>
+    <li><strong>NAEP scores:</strong> 2024 NAEP Reading Assessment, Grade 4, average scale score, public schools, by jurisdiction. Pulled from the NAEP Data Service at <code>nationsreportcard.gov/Dataservice/GetAdhocData.aspx</code> (parameters: <code>subject=reading, grade=4, subscale=RRPCM, variable=TOTAL, stattype=MN:MN, Year=2024</code>).</li>
+    <li><strong>Per-pupil spending:</strong> Per-Pupil Amounts for Current Spending of Public Elementary-Secondary School Systems by State, FY2023 (Table 8, U.S. Census Bureau 2023 Annual Survey of School System Finances summary tables; file <code>elsec23_sumtables.xlsx</code>, released May 2025).</li>
+  </ul>
+  <h3>Statistics</h3>
+  <ul>
+    <li>N = 51 jurisdictions (50 states + DC)</li>
+    <li>Pearson r = 0.082; R² = 0.007 (computed at build time)</li>
+    <li>Linear fit: y = 8.00 × 10⁻⁵ · x + 212.77</li>
+  </ul>
+  <p>Within rounding of the reference figure's r = 0.085, R² = 0.007. Small differences may reflect the reference using FY2024 spending where available; this build uses FY2023 throughout because FY2024 state data has not yet been published in the Census summary tables as of April 2026.</p>
+  <h3>Coloring</h3>
+  <p>All points and the trend line render in Vital City Charcoal per the editor's choice of a neutral framing — no focal state highlighted.</p>
+
+  <h2>Limitations</h2>
+  <ul>
+    <li>The bargaining figures are transcribed from a printed reproduction; consult Saltzman (1981) directly for primary values.</li>
+    <li>Grade-4 NAEP reading is one outcome of many; per-pupil current spending is one input of many. The near-zero correlation says only that, <em>bivariately</em>, state-mean spending and state-mean reading scores have essentially no linear relationship in the cross-section. It is not a causal claim.</li>
+    <li>DoDEA and U.S. territories are excluded because Census per-pupil spending covers states + DC only.</li>
+  </ul>
+
+  <p class="source"><a href="index.html">← Back to charts</a></p>
+</article>
+</body>
+</html>

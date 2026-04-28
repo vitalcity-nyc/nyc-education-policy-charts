@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teacher collective bargaining, 1960–1977</title>
+<link rel="stylesheet" href="assets/card.css">
+<style>
+  table.heatmap {
+    border-collapse: separate;
+    border-spacing: 2px;
+    width: 100%;
+    table-layout: fixed;
+    font-variant-numeric: tabular-nums;
+  }
+  table.heatmap th, table.heatmap td {
+    padding: 0;
+    text-align: center;
+    font-size: 11px;
+  }
+  table.heatmap thead th {
+    font-weight: 700;
+    color: var(--vc-charcoal);
+    letter-spacing: var(--vc-track-caps);
+    text-transform: uppercase;
+    font-size: 10px;
+    padding-bottom: 6px;
+    background: transparent;
+  }
+  table.heatmap th.state-col {
+    text-align: left;
+    width: 130px;
+    font-size: 10px;
+    color: var(--vc-charcoal);
+  }
+  table.heatmap td.state-cell {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--vc-black);
+    padding-right: 8px;
+    background: transparent;
+  }
+  table.heatmap td.state-cell .law-year {
+    color: var(--vc-charcoal);
+    font-weight: 400;
+    font-size: 11px;
+  }
+  table.heatmap td.cell {
+    height: 26px;
+    color: var(--vc-black);
+    font-weight: 600;
+    font-size: 11px;
+    border-radius: 2px;
+  }
+  table.heatmap td.cell.dark { color: var(--vc-white); }
+  table.heatmap td.cell.law {
+    box-shadow: inset 0 0 0 2px var(--vc-black);
+  }
+  table.heatmap thead th.law-header {
+    color: var(--vc-black);
+  }
+</style>
+</head>
+<body>
+<article class="card">
+  <p class="kicker">Labor history</p>
+  <h1 class="chart-title">Teacher collective bargaining went from rare to nearly universal in 17 years &mdash; once states passed the law</h1>
+  <p class="dek">Percent of public-school teachers covered by collective bargaining agreements, 1960–1977. The bordered cell marks the year each state's bargaining law took effect.</p>
+
+  <div class="legend-row">
+    <div class="legend-ramp"><span class="endcap">0%</span><span class="swatch"></span><span class="endcap">100%</span></div>
+    <div class="law-key"><span class="box"></span><span>Year law was enacted</span></div>
+  </div>
+
+  <table class="heatmap" id="heatmap"></table>
+
+  <p class="source">
+    <strong>Source:</strong> Saltzman, Gregory M. (1981), <em>The Growth of Teacher Bargaining and the Enactment of Teacher Bargaining Laws</em>, PhD dissertation, University of Wisconsin–Madison. Values transcribed from the published reproduction; see <a href="methodology.html">methodology</a>.
+  </p>
+</article>
+
+<script>
+fetch('data/bargaining.json').then(r => r.json()).then(data => {
+  const years = data.years;
+  // Pick law-year column = first year >= law_year (or last if none)
+  function lawCol(law) {
+    for (let i = 0; i < years.length; i++) if (years[i] >= law) return i;
+    return years.length - 1;
+  }
+  function rampClass(v) {
+    // Pick from 8-step ramp tied to value
+    if (v <= 5)   return 0;
+    if (v <= 15)  return 1;
+    if (v <= 30)  return 2;
+    if (v <= 50)  return 3;
+    if (v <= 70)  return 4;
+    if (v <= 85)  return 5;
+    if (v <= 95)  return 6;
+    return 7;
+  }
+  const rampVars = ['var(--vc-ramp-0)','var(--vc-ramp-1)','var(--vc-ramp-2)','var(--vc-ramp-3)',
+                    'var(--vc-ramp-4)','var(--vc-ramp-5)','var(--vc-ramp-6)','var(--vc-ramp-7)'];
+
+  let html = '<thead><tr><th class="state-col">State <span style="font-weight:400;">(law enacted)</span></th>';
+  // Determine which column headers should be bolded — none specifically, just years
+  for (let yi = 0; yi < years.length; yi++) {
+    html += `<th>${years[yi]}</th>`;
+  }
+  html += '</tr></thead><tbody>';
+
+  data.states.forEach(s => {
+    const law = lawCol(s.law_year);
+    html += `<tr><td class="state-cell">${s.name} <span class="law-year">(${s.law_year})</span></td>`;
+    s.values.forEach((v, i) => {
+      const idx = rampClass(v);
+      const dark = idx >= 4 ? 'dark' : '';
+      const lawC = i === law ? 'law' : '';
+      const display = v === 0 ? '' : v;
+      html += `<td class="cell ${dark} ${lawC}" style="background:${rampVars[idx]}">${display}</td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody>';
+  document.getElementById('heatmap').innerHTML = html;
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAEP grade-4 reading vs per-pupil spending, 2024</title>
+<link rel="stylesheet" href="assets/card.css">
+<style>
+  .scatter-wrap { position: relative; }
+  svg.scatter { width: 100%; height: auto; display: block; }
+  .stats {
+    font-size: 11px;
+    color: var(--vc-charcoal);
+    display: flex;
+    gap: 18px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .stats strong { color: var(--vc-black); font-weight: 700; }
+  .stats .key {
+    text-transform: uppercase;
+    letter-spacing: var(--vc-track-caps);
+    font-size: 10px;
+    color: var(--vc-charcoal);
+    font-weight: 700;
+    margin-right: 4px;
+  }
+  .axis-title-x {
+    text-align: center;
+    font-size: 11px;
+    color: var(--vc-charcoal);
+    margin-top: 4px;
+  }
+</style>
+</head>
+<body>
+<article class="card">
+  <p class="kicker">Education policy</p>
+  <h1 class="chart-title">More money, similar reading scores: state per-pupil spending barely predicts NAEP grade-4 reading</h1>
+  <p class="dek">Each dot is a state or DC. The fitted line is essentially flat &mdash; spending explains less than 1% of the variance in 2024 grade-4 reading scores.</p>
+
+  <div class="stats" id="stats"></div>
+
+  <div class="scatter-wrap">
+    <svg class="scatter" id="scatter" viewBox="0 0 700 460" preserveAspectRatio="xMidYMid meet" aria-label="Scatter plot of state per-pupil spending versus NAEP grade-4 reading scale score, 2024"></svg>
+  </div>
+  <div class="axis-title-x">Per-pupil current spending, FY2023 (USD)</div>
+
+  <p class="source">
+    <strong>Source:</strong> NAEP 2024 Reading Assessment, Grade 4 average scale score, public schools (NCES, Nation's Report Card); per-pupil current spending FY2023, U.S. Census Bureau Annual Survey of School System Finances, Table 8. Each label is the USPS state abbreviation. See <a href="methodology.html">methodology</a>.
+  </p>
+</article>
+
+<script>
+fetch('data/naep-spending.json').then(r => r.json()).then(data => {
+  const W = 700, H = 460;
+  const m = { top: 20, right: 30, bottom: 56, left: 56 };
+  const iw = W - m.left - m.right;
+  const ih = H - m.top - m.bottom;
+
+  const xMin = 10000, xMax = 33000;
+  const yMin = 198, yMax = 228;
+  const xScale = v => m.left + ((v - xMin) / (xMax - xMin)) * iw;
+  const yScale = v => m.top + ih - ((v - yMin) / (yMax - yMin)) * ih;
+
+  const svg = document.getElementById('scatter');
+  const ns = 'http://www.w3.org/2000/svg';
+  const el = (n, a, t) => {
+    const e = document.createElementNS(ns, n);
+    for (const k in a) e.setAttribute(k, a[k]);
+    if (t !== undefined) e.textContent = t;
+    return e;
+  };
+
+  // Horizontal gridlines + y ticks
+  for (let y = yMin; y <= yMax; y += 5) {
+    svg.appendChild(el('line', { x1: m.left, x2: m.left + iw, y1: yScale(y), y2: yScale(y),
+      stroke: '#dddddd', 'stroke-width': 1 }));
+    svg.appendChild(el('text', { x: m.left - 8, y: yScale(y) + 4, 'text-anchor': 'end',
+      fill: '#707175', 'font-size': 11, 'font-family': 'inherit' }, y));
+  }
+  // X ticks
+  for (let x = 10000; x <= 33000; x += 5000) {
+    svg.appendChild(el('line', { x1: xScale(x), x2: xScale(x), y1: m.top + ih, y2: m.top + ih + 4,
+      stroke: '#707175', 'stroke-width': 1 }));
+    svg.appendChild(el('text', { x: xScale(x), y: m.top + ih + 18, 'text-anchor': 'middle',
+      fill: '#707175', 'font-size': 11 }, '$' + (x/1000) + 'k'));
+  }
+  // Axis lines
+  svg.appendChild(el('line', { x1: m.left, x2: m.left, y1: m.top, y2: m.top + ih,
+    stroke: '#050507', 'stroke-width': 1 }));
+  svg.appendChild(el('line', { x1: m.left, x2: m.left + iw, y1: m.top + ih, y2: m.top + ih,
+    stroke: '#050507', 'stroke-width': 1 }));
+
+  // Y axis title
+  svg.appendChild(el('text', {
+    x: -((m.top + ih/2)), y: 16,
+    transform: 'rotate(-90)', 'text-anchor': 'middle',
+    fill: '#050507', 'font-size': 11, 'font-weight': 700
+  }, 'NAEP grade-4 reading scale score (2024)'));
+
+  // Trend line
+  const slope = data.slope, intercept = data.intercept;
+  const x0 = xMin, x1 = xMax;
+  const y0 = intercept + slope * x0;
+  const y1 = intercept + slope * x1;
+  svg.appendChild(el('line', {
+    x1: xScale(x0), y1: yScale(y0), x2: xScale(x1), y2: yScale(y1),
+    stroke: '#707175', 'stroke-width': 1.25, 'stroke-dasharray': '4 4'
+  }));
+
+  // Points + labels
+  data.rows.forEach(r => {
+    const cx = xScale(r.ppspending_fy23);
+    const cy = yScale(r.naep_g4_reading_2024);
+    svg.appendChild(el('circle', { cx, cy, r: 3.5, fill: '#707175', 'fill-opacity': 0.9,
+      stroke: '#ffffff', 'stroke-width': 0.75 }));
+    svg.appendChild(el('text', { x: cx + 6, y: cy + 3, 'font-size': 10,
+      fill: '#050507', 'font-family': 'inherit' }, r.abbr));
+  });
+
+  // Stats line
+  const stats = document.getElementById('stats');
+  stats.innerHTML =
+    `<span><span class="key">N</span><strong>${data.n}</strong> jurisdictions</span>` +
+    `<span><span class="key">Pearson r</span><strong>${data.pearson_r.toFixed(3)}</strong></span>` +
+    `<span><span class="key">R²</span><strong>${data.r_squared.toFixed(3)}</strong></span>` +
+    `<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:18px;height:0;border-top:1.25px dashed #707175;"></span> Linear fit</span>`;
+});
+</script>
+</body>
+</html>
