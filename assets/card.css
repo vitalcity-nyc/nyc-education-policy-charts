@@ -53,17 +53,7 @@ body {
   text-transform: uppercase;
   color: var(--vc-orange);
   margin: 0 0 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
-.kicker::before, .kicker::after {
-  content: "";
-  flex: 0 0 24px;
-  height: 2px;
-  background: var(--vc-orange);
-}
-.kicker::after { flex: 1; }
 
 h1.chart-title {
   font-family: var(--vc-font-serif);
