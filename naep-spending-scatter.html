@@ -128,5 +128,22 @@ fetch('data/naep-spending.json').then(r => r.json()).then(data => {
     `<span style="display:inline-flex;align-items:center;gap:6px;"><span style="display:inline-block;width:18px;height:0;border-top:1.25px dashed #707175;"></span> Linear fit</span>`;
 });
 </script>
+<script>
+(function () {
+  if (window.parent === window) return;
+  function postHeight() {
+    var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
+    window.parent.postMessage({ type: 'vc-iframe-height', id: location.pathname, height: h }, '*');
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(postHeight).observe(document.documentElement);
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(postHeight);
+  setTimeout(postHeight, 250);
+  setTimeout(postHeight, 1000);
+})();
+</script>
 </body>
 </html>
