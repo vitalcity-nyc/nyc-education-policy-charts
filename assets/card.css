@@ -35,6 +35,15 @@ body {
   -webkit-font-smoothing: antialiased;
   padding: 24px 16px;
 }
+body.embedded {
+  background: transparent;
+  padding: 0;
+}
+body.embedded .card {
+  border: 0;
+  box-shadow: none;
+  padding: 4px 0 0;
+}
 
 .card {
   max-width: 700px;

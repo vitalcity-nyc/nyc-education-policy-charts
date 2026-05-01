@@ -131,6 +131,7 @@ fetch('data/naep-spending.json').then(r => r.json()).then(data => {
 <script>
 (function () {
   if (window.parent === window) return;
+  document.body.classList.add('embedded');
   function postHeight() {
     var h = Math.ceil(document.documentElement.getBoundingClientRect().height);
     window.parent.postMessage({ type: 'vc-iframe-height', id: location.pathname, height: h }, '*');
