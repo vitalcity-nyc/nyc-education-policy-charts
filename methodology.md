@@ -1,6 +1,6 @@
 # Methodology
 
-Two infographics restyled in a clean, embeddable card format. Every number, source, and assumption is documented below — no black boxes.
+Two infographics restyled in a clean, embeddable card format. Every number, source, and assumption is documented below.
 
 ## Chart 1 — Teacher collective bargaining, 1960–1977
 
